@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".LoginActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/bsphcl_logo"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rect_white"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/edit_username"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:drawableLeft="@drawable/user"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:singleLine="true"
+                android:hint="   user name"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+            <EditText
+                android:id="@+id/edit_pass"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:drawableLeft="@drawable/password"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:hint="   password"/>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rect_blue"
+            android:text="Sign In"/>
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rect_blue"
+            android:visibility="gone"
+            android:text="Register"/>
+        <TextView
+            android:id="@+id/text_forget_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="20dp"
+            android:text="Forget Password"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtimei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"
+            android:text="IMEI No : "/>
+        <TextView
+            android:id="@+id/txtVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"
+            android:text="App Version"/>
+    </LinearLayout>
+</ScrollView>

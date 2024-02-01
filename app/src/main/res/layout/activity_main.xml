@@ -1,0 +1,343 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bih.nic.bsphcl.setraapp.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimaryDark"
+        >
+        <include layout="@layout/header"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:text="Welcome Back"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:padding="5dp"
+                android:text=" Chandan"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/balance_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="1.00 INR"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content_home"
+        android:layout_below="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_items"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+
+        </androidx.recyclerview.widget.RecyclerView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"
+            android:layout_below="@+id/recycler_items"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".33"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Scan"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_mob_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Mobile Session"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_session_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Session List"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".33"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_login_log"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Login Log"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_verify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Verify"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Profile"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_weight=".33"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_landline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Landline"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_flight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Flight"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".33">
+
+                <LinearLayout
+                    android:id="@+id/ll_apartment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/sblogo1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Apartment"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

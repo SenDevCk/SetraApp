@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_mpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_mpin"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:background="@color/colorPrimaryDark"
+            app:popupTheme="@style/AppTheme"
+            >
+
+        </android.support.v7.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar_mpin"
+        android:layout_margin="15dp"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_user_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters"
+                android:hint="User Id"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Password"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_reg_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:hint="Registered Mobile Number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Register"
+        android:textColor="@android:color/white" />
+</RelativeLayout>

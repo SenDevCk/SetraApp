@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet2"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:clipToPadding="true"
+    android:background="#ffffff"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/assa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center"
+            android:text="Service Provided By :NIC Bihar(Jan)"
+            android:textColor="@android:color/white" />
+        <LinearLayout
+            android:id="@+id/ll_foot1"
+            android:layout_below="@+id/assa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="0dp"
+                android:layout_weight=".2"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/user"
+                app:civ_border_color="@android:color/transparent"
+                app:civ_border_width="1dp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/text_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="20dp"
+                    android:text="Chandan Kumar Singh"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/text_add_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:text="Saran,Chapra,Bihar"
+                    android:textColor="@color/textColor3"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/logot"
+                android:layout_width="0dp"
+                android:layout_weight=".1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/logout"
+                app:civ_border_color="@android:color/transparent"
+                app:civ_border_width="1dp" />
+
+        </LinearLayout>
+        <View
+            android:id="@+id/m_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/ll_foot1"
+            android:background="@color/textColor2" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/m_view"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="20dp"
+                android:text="chandan@gmail.com"
+                android:textColor="@color/textColor3"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/text_mb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="9006388185"
+                android:textStyle="bold|italic"
+                android:textColor="@android:color/holo_green_light"
+
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/text_switched_off"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="De-Register Your Device"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

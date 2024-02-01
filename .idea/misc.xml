@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/drawable/rect_white.xml" value="0.1" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/activity_login2.xml" value="0.25" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/activity_main2.xml" value="0.25" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/activity_pincode.xml" value="0.1875" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/activity_profile.xml" value="0.5" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/activity_register.xml" value="0.4388888888888889" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/activity_splash.xml" value="0.134375" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/fragment_login.xml" value="0.1875" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/nested_layout.xml" value="0.14351851851851852" />
+        <entry key="..\:/chandan backup/SetraApp/app/src/main/res/layout/otp_dialog.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
