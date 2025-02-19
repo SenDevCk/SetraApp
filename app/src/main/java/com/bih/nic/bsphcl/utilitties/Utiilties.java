@@ -302,7 +302,7 @@ public class Utiilties {
 						});
 		builder.create().show();
 	}
-	public static boolean isGPSEnabled (Context mContext){
+	public static boolean isGPSEnabled(Context mContext){
 		LocationManager locationManager = (LocationManager)
 				mContext.getSystemService(Context.LOCATION_SERVICE);
 		return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);

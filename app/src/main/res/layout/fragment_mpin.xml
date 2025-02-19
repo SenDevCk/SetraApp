@@ -21,7 +21,7 @@
         android:padding="20.0dp"
         />
 
-    <in.arjsna.passcodeview.PassCodeView
+   <!-- <in.arjsna.passcodeview.PassCodeView
         android:id="@+id/pass_code_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +31,20 @@
         android:padding="25.0dp"
         app:empty_drawable="@drawable/empty_dot"
         app:filled_drawable="@drawable/filled_dot"
-        />
+        />-->
+
+    <EditText
+        android:id="@+id/pass_code_view"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:hint="****"
+        android:gravity="center"
+        android:inputType="numberSigned"
+        android:maxLength="4"
+        android:background="@drawable/rectangle_edit_text"
+        ></EditText>
 
 </LinearLayout>

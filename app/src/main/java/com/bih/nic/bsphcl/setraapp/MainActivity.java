@@ -17,19 +17,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bih.nic.bsphcl.utilitties.Urls_this_pro;
 import com.bih.nic.bsphcl.utilitties.Utiilties;
 import com.bih.nic.bsphcl.utilitties.WebHandler;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 LinearLayout ll_scan,ll_mob_session,ll_session_list,ll_login_log,ll_verify,ll_profile;
     //qr code scanner object
-    private IntentIntegrator qrScan;
+    //    //private IntentIntegrator qrScan;
     String model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        qrScan = new IntentIntegrator(this);
+       // qrScan = new IntentIntegrator(this);
         init();
     }
 
@@ -54,30 +53,30 @@ LinearLayout ll_scan,ll_mob_session,ll_session_list,ll_login_log,ll_verify,ll_pr
     @Override
     public void onClick(View v) {
             if(v.getId()==R.id.ll_scan){
-                qrScan.initiateScan();
+                //qrScan.initiateScan();
             }
     }
     //Getting the scan results
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (result != null) {
-            //if qrcode has nothing in it
-            if (result.getContents() == null) {
-                Toast.makeText(this, "Result Not Found", Toast.LENGTH_LONG).show();
-            } else {
-                //if qr contains data
-                Toast.makeText(this, ""+result, Toast.LENGTH_LONG).show();
-                if (Utiilties.isOnline(MainActivity.this)) {
-                    //new Varifier().execute();
-                }else{
-                    Toast.makeText(this, "No Internet Connection ! ", Toast.LENGTH_SHORT).show();
-                }
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+//        if (result != null) {
+//            //if qrcode has nothing in it
+//            if (result.getContents() == null) {
+//                Toast.makeText(this, "Result Not Found", Toast.LENGTH_LONG).show();
+//            } else {
+//                //if qr contains data
+//                Toast.makeText(this, ""+result, Toast.LENGTH_LONG).show();
+//                if (Utiilties.isOnline(MainActivity.this)) {
+//                    //new Varifier().execute();
+//                }else{
+//                    Toast.makeText(this, "No Internet Connection ! ", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        } else {
+//            super.onActivityResult(requestCode, resultCode, data);
+//        }
+//    }
 
     private class Varifier extends AsyncTask<String,Void,String> {
         @Override

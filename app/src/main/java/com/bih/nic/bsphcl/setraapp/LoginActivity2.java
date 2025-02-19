@@ -108,7 +108,7 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
         try {
             version = LoginActivity2.this.getPackageManager().getPackageInfo(LoginActivity2.this.getPackageName(), 0).versionName;
             //Log.e("App Version : ", "" + version + " ( " + imei + " )");
-            text_ver.setText("App Version : " + version + "( K )");
+            text_ver.setText("App Version : " + version + "( M )");
             text_imei.setText("IMEI NO : " + imei);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -128,6 +128,7 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
             } else if (!Utiilties.isOnline(LoginActivity2.this)) {
                 Toast.makeText(LoginActivity2.this, "Please go online !", Toast.LENGTH_SHORT).show();
             } else {
+                button_login.setEnabled(false);
                 filter = new IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION);
                 smsReceiver=new SmsReceiver();
                 registerReceiver(smsReceiver, filter);
@@ -227,32 +228,37 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
                 this.dialog1.cancel();
             }
             if (Utiilties.isDebugConnected()) {
-                finish();
+                Toast.makeText(LoginActivity2.this, "Debugging Enabled !", Toast.LENGTH_SHORT).show();
+                LoginActivity2.this.finish();
             }
             if (result == null) {
+                button_login.setEnabled(true);
                 alertDialog.setTitle("Failed");
-                alertDialog.setMessage("Something Went Wrong ! May be Server Problem !");
+                alertDialog.setMessage("Something Went Wrong ! Try again after some time !");
                 alertDialog.setButton(Dialog.BUTTON_POSITIVE, "OK", (dialog, which) -> edit_user_name.setFocusable(true));
                 alertDialog.show();
-            } else if (!result.getAuthenticated()) {
+            }
+            else if (!result.getAuthenticated()) {
                 if ((result.getMessageString().trim().contains("OTP SENT"))) {
                     countDownTimer = new CountDownTimer(30000, 1000) {
 
                         public void onTick(long millisUntilFinished) {
+                            long seconds=millisUntilFinished / 1000;
                             dialog.setCanceledOnTouchOutside(false);
-                            dialog.setMessage("Waiting For Otp for 30 seconds... "+millisUntilFinished);
+                            dialog.setMessage("Waiting For Otp for 30 seconds... remaining"+(seconds));
                             dialog.show();
                             //here you can have your logic to set text to edittext
                         }
 
                         public void onFinish() {
                             dialog.dismiss();
-                            AlertDialogForPrinter();
+                            AlertDialogForOTP();
                         }
 
                     }.start();
 
                 } else {
+                    button_login.setEnabled(true);
                     String msgs = "IMEI MISMATCH";
                     if (result.getMessageString().equalsIgnoreCase(msgs)) {
                         text_imei.setVisibility(View.VISIBLE);
@@ -267,18 +273,19 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
                 Intent cPannel = new Intent(LoginActivity2.this, Main2Activity.class);
                 if (Utiilties.isOnline(LoginActivity2.this)) {
                     if (result != null) {
-                        if (imei.equalsIgnoreCase(result.getImeiNo())) {
+                        if (imei.equalsIgnoreCase(result.getImeiNo().trim())) {
                             try {
                                 result.setPassword(edit_pass.getText().toString());
                                 GlobalVariables.LoggedUser = result;
                                 CommonPref.setUserDetails(LoginActivity2.this, result);
+                                cPannel.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(cPannel);
                                 LoginActivity2.this.finish();
-
                             } catch (Exception ex) {
                                 Toast.makeText(LoginActivity2.this, "Login failed due to Some Error !", Toast.LENGTH_SHORT).show();
                             }
                         } else {
+                            button_login.setEnabled(true);
                             alertDialog.setTitle("Device Not Registered");
                             alertDialog.setMessage("Sorry, your device is not registered!.\r\nPlease contact your Admin.");
                             alertDialog.setButton(Dialog.BUTTON_POSITIVE, "OK", (dialog, which) -> edit_user_name.setFocusable(true));
@@ -289,6 +296,7 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
                     if (CommonPref.getUserDetails(LoginActivity2.this) != null) {
                         GlobalVariables.LoggedUser = result;
                         if (GlobalVariables.LoggedUser.getUserID().equalsIgnoreCase(edit_user_name.getText().toString().trim()) && GlobalVariables.LoggedUser.getPassword().equalsIgnoreCase(edit_pass.getText().toString().trim())) {
+                            cPannel.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(cPannel);
                             LoginActivity2.this.finish();
                         } else {
@@ -375,7 +383,7 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     Log.d("params", strings[0]);
                     //return WebServiceHelper.validateotp(userid, imei, strings[0]);
-                    return WebHandler.callByGet(Urls_this_pro.GET_VALIDATE_OTP + reqString(edit_user_name.getText().toString() + "|" + edit_pass.getText().toString() + "|" + imei + "|" + String.valueOf(strings[0])));
+                    return WebHandler.callByGet(Urls_this_pro.GET_VALIDATE_OTP + reqString(edit_user_name.getText().toString() + "|" + edit_pass.getText().toString() + "|" + imei + "|" + strings[0].trim()));
                 } else {
                     Log.e("error", "Your device must have atleast Kitkat or Above Version");
                 }
@@ -405,7 +413,7 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    public void AlertDialogForPrinter() {
+    public void AlertDialogForOTP() {
         final Dialog dialogOtp = new Dialog(LoginActivity2.this);
         /*	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); //before*/
         dialogOtp.setContentView(R.layout.otp_dialog);
@@ -416,8 +424,9 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
         final TextView text_timer = (TextView) dialogOtp.findViewById(R.id.text_timer);
         countDownTimer = new CountDownTimer(60000, 1000) {
             public void onTick(long millisUntilFinished) {
+                long secs= millisUntilFinished / 1000;
                 text_timer.setVisibility(View.VISIBLE);
-                text_timer.setText(Html.fromHtml("<b style=\"color:White;\">" + (millisUntilFinished / 1000) + "</b> "));
+                text_timer.setText(Html.fromHtml("<b style=\"color:White;\">" + (secs) + "</b> "));
                 text_timer.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
                 //here you can have your logic to set text to edittext
             }
@@ -439,7 +448,7 @@ public class LoginActivity2 extends AppCompatActivity implements View.OnClickLis
             } else {
                 button_submit.setClickable(false);
                 dialogOtp.dismiss();
-                new SmsVerificationService(LoginActivity2.this, imei, imei).execute(otp_view.getText().toString());
+                new SmsVerificationService(LoginActivity2.this, imei, imei).execute(otp_view.getText().toString().trim());
             }
 
         });

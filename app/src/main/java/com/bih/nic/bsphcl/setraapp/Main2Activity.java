@@ -55,10 +55,10 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         text_add_detail.setText(""+ userInfo2.getSubDivision()+", "+userInfo2.getDivision());
         text_email.setText(""+ userInfo2.getEmail());
         if(Build.VERSION.SDK_INT >= 29){
-            text_mb.setText("" + userInfo2.getContactNo() + "\n UUID : " + userInfo2.getImeiNo());
+            text_mb.setText("******" + userInfo2.getContactNo().substring(userInfo2.getContactNo().length()-4) + "\n UUID : **************" + userInfo2.getImeiNo().substring(userInfo2.getImeiNo().length()-2));
         }
         else {
-            text_mb.setText("" + userInfo2.getContactNo() + "\n IMEI : " + userInfo2.getImeiNo());
+            text_mb.setText("******" + userInfo2.getContactNo().substring(userInfo2.getContactNo().length()-4) + "\n IMEI : **************" + userInfo2.getImeiNo().substring(userInfo2.getImeiNo().length()-2));
         }
         mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet2);
         mBottomSheetBehavior1.setHideable(false);
